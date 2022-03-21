@@ -9,29 +9,33 @@
 </head>
 <body>
   
+
   <section id="header">
-    <div class="header_container">
+    <div class="header container">
       <div class="navBar">
         <div class="jmeno">
-          <a href="#domu">
+          <a href="#hero">
             <h1><span>L</span>ukáš <span>R</span>olenec</h1>
           </a>
         </div>
         <div class="nav-list">
-          
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
           <ul>
-            <li><a href="#domu">Domů</a></li>
-            <li><a href="#služby" >Služby</a></li>
-            <li><a href="#projekty" >Projekty</a></li>
-            <li><a href="#about">O mně</a></li>
-            <li><a href="#contact">Kontakty</a></li>
+            <li><a href="#domu" data-after="Domů">Domů</a></li>
+                      <li><a href="#služby" data-after="Služby">Služby</a></li>
+                      <li><a href="#projekty" data-after="Projekty">Projekty</a></li>
+                      <li><a href="#about"data-after="O mně">O mně</a></li>
+                      <li><a href="#contact"data-after="Kontakty">Kontakty</a></li>
+                 </ul>
           </ul>
         </div>
       </div>
     </div>
   </section>
- 
 
+ 
 
  
   <section id="domu">
@@ -69,7 +73,7 @@
         <div class="služby-item">
           <div class="ikonaWeb"><img src="icons8-adobe-photoshop-48.png" /> </div>
           <h2>Photoshop</h2>
-          <p>Mám zkušenosti s použitím photoshopu, především ho používám na všelijaké upravování fotek.</p>
+          <p>Photoshop používám především na úpravu fotek.</p>
         </div>
         <div class="služby-item">
           <div class="ikonaWeb"><img src="icons8-adobe-illustrator-64.png" /></div>
@@ -83,7 +87,7 @@
         </div>
         <div class="služby-item">
           <div class="ikonaWeb"><img src="icons8-c-sharp-logo-48.png" /></div>
-         
+         <h2>C Sharp</h2>
           <p>Nejvíce znalostí z programovacích jazyků mám v C#</p>
         </div>
       </div>
@@ -110,7 +114,7 @@
         </div>
         <div class="projekt-item">
           <div class="projekt-info">
-            <h1>Pardubický Kraťas</h1>
+            <h1>Pardubický Kraťas </h1>
             <h2>iilustrator photoshop</h2>
             <p>Minulý rok jsem pracoval na logu Pardubického Kraťasu.</p>
           </div>
@@ -118,6 +122,7 @@
             <img src="par kratas.png" alt="img">
           </div>
         </div>
+        
         <div class="projekt-item">
           <div class="projekt-info">
             <h1>OKENA Sunrise</h1>
@@ -225,6 +230,8 @@
       <p>Copyright © 2022</p>
     </div>
   </section>
+  <script src="./script.js"></script>
+
   
   
 </body>

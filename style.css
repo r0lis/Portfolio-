@@ -75,6 +75,7 @@ p {
 
 
 #header {
+	
 	position: fixed;
 	z-index: 1000;
 	left: 0;
@@ -85,7 +86,7 @@ p {
 #header .header {
 	min-height: 8vh;
 	background-color: rgba(31, 30, 30, 0.24);
-	
+	transition: 0.3s ease background-color;
 }
 #header .navBar {
 	display: flex;
@@ -96,31 +97,26 @@ p {
 	max-width: 1300px;
 	padding: 0 10px;
 }
-#header .nav-list{
-	visibility: visible;
-	height: auto;
-	overflow:inherit;
-	box-sizing: border-box;
-	display: flex;
-	right: 0;
-	display: inline-block;
-}
+
 #header .nav-list ul {
 	list-style: none;
 	position: absolute;
 	background-color: rgb(31, 30, 30);
 	width: 100vw;
-	text-transform: uppercase;
 	height: 100vh;
-	
+	left: 100%;
 	top: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
 	
-	
+}
+#header .nav-list ul.active {
+	left: 0%;
 }
 
 #header .nav-list ul a {
@@ -140,9 +136,84 @@ p {
 }
 
 
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+	color: crimson;
+}
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+	margin-right: 20px;
+}
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid white;
+	animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: white;
+	z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: white;
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+	top: 8px;
+}
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+
+
 #domu {
-	background-image: url(9838963D-1D7C-490F-BE1B-C28034FC2930.jpeg);
-	background-size: cover;
+	background-image: url(foto2.jpeg);
+	background-size:50%;
 	background-position: top center;
 	position: relative;
 	z-index: 1;
@@ -230,7 +301,6 @@ p {
 	flex-direction: column;
 	padding: 30px;
 	border-radius: 10px;
-	background-image: url(./img/img-1.png);
 	background-size: cover;
 	margin: 10px 5%;
 	position: relative;
@@ -463,7 +533,16 @@ p {
 	color: white;
 	font-size: 1.3rem;
 }
-
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
 
 @keyframes text_reveal_box {
 	50% {
@@ -486,43 +565,15 @@ p {
 		font-weight: 500;
 	}
 }
-@media screen and (max-width: 768px) {
-    
-.nav-list {
-        float: none;
-        position: fixed;
-        z-index: 9;
-        left: 0;
-        right: 0;
-        top: 50px;
-        bottom: 100%;
-        width: auto;
-        height: auto;
-        flex-direction: column;
-        justify-content: space-evenly;
-        background-color: rgba(0,0,0,1);
-        overflow: hidden;
-        box-sizing: border-box;
-        transition: all .5s ease-in-out;
-    }
-    
-    
-}
+
 
 @media only screen and (min-width: 768px) {
 	.cta {
 		font-size: 2.5rem;
 		padding: 20px 60px;
 	}
-	#header .nav-list{
-	visibility: visible;
-	height: auto;
-	overflow:inherit;
-	box-sizing: border-box;
-	display: flex;
 	
-	display: inline-block;
-}
+
 	h1.section-title {
 		font-size: 6rem;
 	}
@@ -612,23 +663,7 @@ p {
 		text-align: left;
 		padding-left: 20px;
 	}
-	.header .nav-list{
-		position: relative;
-		visibility: visible;
-	}
-	#header .nav-list ul {
-		position: relative;
-		display: block;
-		height: auto;
-		right: 0;
-		background-color: transparent;
-	}
-	#header .nav-list ul li {
-		display: inline-block;
-	}
-	#header .nav-list ul li a {
-		font-size: 1.8rem;
-	}
+	
 	
 	
 }
@@ -636,11 +671,14 @@ p {
 @media only screen and (min-width: 1200px) {
 	
 	
+	#header .hamburger {
+		display: none;
+	}
 	#header .nav-list ul {
-		position: relative;
+		position: initial;
 		display: block;
 		height: auto;
-		right: 0;
+		width: fit-content;
 		background-color: transparent;
 	}
 	#header .nav-list ul li {
@@ -648,6 +686,9 @@ p {
 	}
 	#header .nav-list ul li a {
 		font-size: 1.8rem;
+	}
+	#header .nav-list ul a:after {
+		display: none;
 	}
 	
 	
