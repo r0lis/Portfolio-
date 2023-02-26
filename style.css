@@ -274,39 +274,42 @@ p {
 	animation-delay: 2.5s;
 }
 
-
 #služby .služby {
+	display: flex;
 	flex-direction: column;
 	text-align: center;
-	max-width: 1500px;
 	margin: 0 auto;
 	padding: 100px 0;
-}
-#služby .služby-top {
+  }
+  
+  #služby .služby-top {
 	max-width: 500px;
 	margin: 0 auto;
-}
-#služby .služby-bottom {
+  }
+  
+  #služby .služby-bottom {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 50px;
-}
-#služby .služby-item {
-	flex-basis: 80%;
+  }
+  
+  #služby .služby-item {
 	display: flex;
-	align-items: flex-start;
+	flex: 1;
+	min-height: 200px;
+	min-width: 200px;
+	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 30px;
+	padding: 20px;
 	border-radius: 10px;
 	background-size: cover;
-	margin: 10px 5%;
+	margin: 10px;
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
-}
+  }
 #služby .služby-item::after {
 	content: '';
 	position: absolute;
@@ -355,7 +358,7 @@ p {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	width: 80%;
+	Width: 80%;
 	margin: 20px auto;
 	overflow: hidden;
 	border-radius: 10px;
@@ -384,7 +387,7 @@ p {
 	color: white;
 }
 #projekty .projekt-img {
-	flex-basis: 50%;
+	flex-basis: 65%;
 	height: 300px;
 	overflow: hidden;
 	position: relative;
